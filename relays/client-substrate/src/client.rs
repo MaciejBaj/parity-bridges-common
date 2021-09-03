@@ -31,6 +31,7 @@ use relay_utils::relay_loop::RECONNECT_DELAY;
 use sp_core::{storage::StorageKey, Bytes};
 use sp_trie::StorageProof;
 use sp_version::RuntimeVersion;
+use frame_metadata::RuntimeMetadata;
 
 const SUB_API_GRANDPA_AUTHORITIES: &str = "GrandpaApi_grandpa_authorities";
 const MAX_SUBSCRIPTION_CAPACITY: usize = 4096;
@@ -294,5 +295,10 @@ impl<C: Chain> Client<C> {
 				"grandpa_unsubscribeJustifications",
 			)
 			.await?)
+	}
+
+	/// Get a Substrate block from its hash.
+	pub async fn get_runtime_metadata(&self, block_hash: Option<C::Hash>) -> Result<RuntimeMetadata> {
+		Ok(Substrate::<C>::get_runtime_metadata(&*self.client, block_hash).await?)
 	}
 }

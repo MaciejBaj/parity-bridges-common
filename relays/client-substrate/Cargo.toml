@@ -29,6 +29,7 @@ tokio = "1.8"
 
 frame-support = { git = "https://github.com/paritytech/substrate", branch = 'polkadot-v0.9.8' }
 frame-system = { git = "https://github.com/paritytech/substrate", branch = 'polkadot-v0.9.8' }
+frame-metadata = { git = "https://github.com/paritytech/substrate", branch = 'polkadot-v0.9.8' }
 pallet-balances = { git = "https://github.com/paritytech/substrate", branch = 'polkadot-v0.9.8' }
 sc-rpc-api = { git = "https://github.com/paritytech/substrate", branch = 'polkadot-v0.9.8' }
 sp-core = { git = "https://github.com/paritytech/substrate", branch = 'polkadot-v0.9.8' }

@@ -24,6 +24,7 @@ use sp_core::{
 	Bytes,
 };
 use sp_version::RuntimeVersion;
+use frame_metadata::RuntimeMetadata;
 
 jsonrpsee_proc_macros::rpc_client_api! {
 	pub Substrate<C: Chain> {
@@ -49,5 +50,7 @@ jsonrpsee_proc_macros::rpc_client_api! {
 		fn state_prove_storage(keys: Vec<StorageKey>, hash: Option<C::Hash>) -> ReadProof<C::Hash>;
 		#[rpc(method = "state_getRuntimeVersion", positional_params)]
 		fn state_runtime_version() -> RuntimeVersion;
+		#[rpc(method = "state_getMetadata", positional_params)]
+		fn get_runtime_metadata(block_hash: Option<C::Hash>) -> RuntimeMetadata;
 	}
 }
